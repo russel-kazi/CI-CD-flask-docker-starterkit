@@ -23,14 +23,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install pylint
 
-    - name: Run pylint linter on changed files
+    - name: Run pylint linter
       run: |
-        # Get a list of changed Python files in the pull request
-        CHANGED_FILES=$(git diff --name-only origin/main...HEAD -- '*.py')
-        
-        # Run pylint only on the changed files
-        if [ -n "$CHANGED_FILES" ]; then
-          pylint $CHANGED_FILES
-        else
-          echo "No Python files were changed."
-        fi
+        git fetch origin main --depth=1
+        CHANGED_FILES=$(git diff --name-only FETCH_HEAD HEAD -- '*.py')
+        echo "$CHANGED_FILES"
+        pylint $CHANGED_FILES
