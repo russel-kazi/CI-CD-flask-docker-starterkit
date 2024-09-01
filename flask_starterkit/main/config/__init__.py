@@ -10,7 +10,7 @@ def create_app():
         Flask: The configured instance of the flask application
     """
     app_instance = Flask(__name__)
-    app_instance.config["YOUR_AWESOME_CONFIG_ENV"] = "your awesome non sensitive value"
+        app_instance.config["YOUR_AWESOME_CONFIG_ENV"] = "your awesome non sensitive value"
     # app_instance.config["YOUR_SUPER_SECRET_VALUE"] = os.getenv(
     #     "FAKE_SUPER_SECRET")
     
