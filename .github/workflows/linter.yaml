@@ -1,9 +1,6 @@
 name: Lint Flask App
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -26,6 +23,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install pylint
 
-    - name: Run pylint linter
+    - name: Run pylint linter on changed files
       run: |
-        pylint ./flask_starterkit
+        # Get a list of changed Python files in the pull request
+        CHANGED_FILES=$(git diff --name-only origin/main...HEAD -- '*.py')
+        
+        # Run pylint only on the changed files
+        if [ -n "$CHANGED_FILES" ]; then
+          pylint $CHANGED_FILES
+        else
+          echo "No Python files were changed."
+        fi
