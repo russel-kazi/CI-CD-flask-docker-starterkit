@@ -1,0 +1,8 @@
+[MESSAGES CONTROL]
+
+disable=C0114,E0401,C0115,W0707,C0116,W0311,W0611,C0304,C0301,C0303
+
+#[NAMING]
+#class-naming-style=PascalCase
+#function-naming-style=snake_case
+#variable-naming-style=snake_case
