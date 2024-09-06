@@ -1,7 +1,7 @@
 version: "3.4"
 
 services:
-  flaskdockerstarterkit:
+  app:
     image: flaskdockerstarterkit
     build:
       context: .
@@ -24,8 +24,8 @@ services:
     volumes:
       - .:/flask_starterkit:cached
     env_file: .env
-  test-runner:
-    image: test-runner
+  unit-test-container:
+    image: unit-test-container
     build:
       context: .
       dockerfile: ./Dockerfile
