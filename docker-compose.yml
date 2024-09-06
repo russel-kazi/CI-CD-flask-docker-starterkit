@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-      target: debug
+      target: prod
     ports:
       - 5000:5000
     volumes:
